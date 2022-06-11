@@ -219,6 +219,10 @@ var date={
 
 console.log(nextpalindromedate(date))
 
+// wiring up 
+
+
+
 
 
 
