@@ -134,8 +134,60 @@ console.log(leapyear(2021))
 
 
 function nextdatedate(date){
+    var day=date.day+1;
+
+    // here we are finding the nextday year and month remain same here
+    var month=date.month;
+    var year=date.year;
+
+
+    var dateinmonth=[31,28,31,30,31,30,31,31,30,31,30,31]
+
+    if(month==2){
+        // checking for febuary
+        if(leapyear(year)){
+            if(day>29){
+                day=1;
+                month++;
+
+            }
+            else{
+                if(day>28){
+                    day=1;
+                    month++;
+
+                }
+            }
+        }
+    }
+    // 
+    else{
+        // day exceeds and month increases
+        if(day>dateinmonth[month-1]){
+            day=1;
+            month++;
+
+
+        }
+    }
+    // if month exceeds year++
+    if(month>12){
+        day=1;
+        year++;
+        
+    }
+    return{
+        day:day,
+        month:month,
+        year:year
+    }
+
+
 
 }
+// console.log(nextdatedate(date))
+
+
 
 function nextpalindromedate(date){
 
