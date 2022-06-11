@@ -14,20 +14,17 @@ console.log(reversestr("hello world"))
 // ex-02 Write a javascript function that check for palindrome or not
 function ispalindrome(str){
 
-    var stre=reversestr(str);
+    var rev=reversestr(str)
 
-    if(stre===reversestr){
-        return true;
-
+    if(str===rev){
+        console.log("ITS IS PALINDROME")
     }
     else{
-        return false;
-
+        console.log("it is not a valid palindrome")
     }
 }
 
-console.log(ispalindrome("civic"))
-
+console.log(ispalindrome("harsh"))
 
 
 
