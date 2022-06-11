@@ -55,14 +55,100 @@ function convertnumbertostring(date){
     datestr.year=date.year.toString();
 
     return datestr;
-    
+
 }
 var date={
-    day:5,
-    month:4,
+    day:02,
+    month:02,
     year:2020
 }
 console.log(convertnumbertostring(date))
+
+// Ex-04: Write a JS function that takes a date and returns all variations of it
+// Your function will return an array of strings for these date formats
+// DD-MM-YYYY
+// MM-DD-YYYY
+// YYYY-MM-DD
+// DD-MM-YY
+// MM-DD-YY
+// YY-MM-DD
+
+function getallvariation(date){
+
+    var datestr=convertnumbertostring(date);
+
+    var ddmmyyyy=datestr.day+datestr.month+datestr.year;
+
+    var mmddyyyy=datestr.month+datestr.day+datestr.year;
+
+    var yyyymmdd=datestr.year+datestr.month+datestr.day;
+
+    var ddmmyy=datestr.day+datestr.month+datestr.year.slice(-2);
+
+    var mmddyy=datestr.month+datestr.day+datestr.year.slice(-2);
+
+    var yymmdd=datestr.year.slice(-2)+datestr.month+datestr.day;
+
+    return [ddmmyyyy,mmddyyyy,yyyymmdd,ddmmyy,mmddyy,yymmdd]
+}
+console.log(getallvariation(date))
+
+// Ex-05: Write a function that checks palindrome for all the date formats
+
+function checkallpalindrome(date){
+    var listofpalindrome=getallvariation(date);
+
+    var notpaindrome=false;
+
+    for(var i=0;i<listofpalindrome.length;i++){
+        if(ispalindrome(listofpalindrome[i])){
+            notpaindrome=true;
+            break;
+
+        }
+    }
+    return notpaindrome;
+
+}
+console.log(checkallpalindrome(date))
+
+// Ex-06: Find the next palindrome date, also how many days are in between
+function leapyear(year){
+
+    if(year%400===0){
+        return true;
+
+    }
+    if(year%100===0){
+        return true;
+
+    }
+    if(year%4===0){
+        return true;
+
+    }
+    return false;
+
+}
+console.log(leapyear(2021))
+
+
+function nextdatedate(date){
+
+}
+
+function nextpalindromedate(date){
+
+
+}
+
+
+
+
+
+
+
+
 
 
 
