@@ -190,9 +190,36 @@ function nextdatedate(date){
 
 
 function nextpalindromedate(date){
+    var counter=0;
+
+    var nextdate=nextdatedate(date)
+
+    while(1){
+        counter++;
+        // we will use 
+        var ispalindrome=getallvariation(nextdate);
+
+        if(ispalindrome){
+            break;
+        }
+
+        nextdate=nextdatedate(nextdate)
 
 
+    }
+    return [counter,nextdate]
 }
+
+var date={
+    day:02,
+    month:02,
+    year:2020
+}
+
+
+console.log(nextpalindromedate(date))
+
+
 
 
 
