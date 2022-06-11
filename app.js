@@ -26,6 +26,47 @@ function ispalindrome(str){
 
 console.log(ispalindrome("harsh"))
 
+//Ex-03: Write a function that converts the date from number to string
+
+function convertnumbertostring(date){
+    var datestr={
+        day:'',
+        month:'',
+        year:'',
+    }
+    // for the day 
+    if(date.day<10){
+        datestr.day='0'+date.day;
+
+    }
+    else{
+        datestr.day=date.day.toString();
+
+    }
+    // again for the month
+    if(date.month<10){
+        datestr.month='0'+date.month;
+    }
+    else{
+        datestr.month=date.month.toString();
+
+    }
+    // for the year there is simple converting into string
+    datestr.year=date.year.toString();
+
+    return datestr;
+    
+}
+var date={
+    day:5,
+    month:4,
+    year:2020
+}
+console.log(convertnumbertostring(date))
+
+
+
+
 
 
 
