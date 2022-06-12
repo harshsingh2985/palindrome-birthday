@@ -8,7 +8,7 @@ function reversestr(str){
     return str;
 
 }
-console.log(reversestr("hello world"))
+// console.log(reversestr("hello world"))
 
 
 // ex-02 Write a javascript function that check for palindrome or not
@@ -17,14 +17,15 @@ function ispalindrome(str){
     var rev=reversestr(str)
 
     if(str===rev){
-        console.log("ITS IS PALINDROME")
+        return true;
+
     }
     else{
-        console.log("it is not a valid palindrome")
+        return false;
     }
 }
 
-console.log(ispalindrome("harsh"))
+// console.log(ispalindrome("harsh"))
 
 //Ex-03: Write a function that converts the date from number to string
 
@@ -33,7 +34,8 @@ function convertnumbertostring(date){
         day:'',
         month:'',
         year:'',
-    }
+    };
+
     // for the day 
     if(date.day<10){
         datestr.day='0'+date.day;
@@ -62,7 +64,8 @@ var date={
     month:02,
     year:2020
 }
-console.log(convertnumbertostring(date))
+// console.log(convertnumbertostring(date))
+
 
 // Ex-04: Write a JS function that takes a date and returns all variations of it
 // Your function will return an array of strings for these date formats
@@ -133,7 +136,7 @@ function leapyear(year){
 console.log(leapyear(2021))
 
 
-function nextdatedate(date){
+function getnextday(date){
     var day=date.day+1;
 
     // here we are finding the nextday year and month remain same here
@@ -172,7 +175,7 @@ function nextdatedate(date){
     }
     // if month exceeds year++
     if(month>12){
-        day=1;
+        month=1;
         year++;
         
     }
@@ -192,7 +195,7 @@ function nextdatedate(date){
 function nextpalindromedate(date){
     var counter=0;
 
-    var nextdate=nextdatedate(date)
+    var nextdate=getnextday(date)
 
     while(1){
         counter++;
@@ -203,7 +206,7 @@ function nextpalindromedate(date){
             break;
         }
 
-        nextdate=nextdatedate(nextdate)
+        nextdate=getnextday(nextdate)
 
 
     }
@@ -211,8 +214,8 @@ function nextpalindromedate(date){
 }
 
 var date={
-    day:02,
-    month:02,
+    day:31,
+    month:12,
     year:2020
 }
 
@@ -220,6 +223,53 @@ var date={
 console.log(nextpalindromedate(date))
 
 // wiring up 
+
+var input=document.querySelector("#input-birthday")
+var submitbutton=document.querySelector("#submitbtn")
+var output=document.querySelector("#outputdiv")
+
+
+function eventhandler(e){
+    var bdaystr=input.value;
+    // console.log(bdaystr)
+    if(bdaystr!==''){
+        var listofcharcter=bdaystr.split('-');
+
+        var date={
+            day:Number(listofcharcter[2]),
+            month:Number(listofcharcter[1]),
+            year:Number(listofcharcter[0])
+
+        }
+        // console.log(date)
+        var ispalindromes=checkallpalindrome(date);
+        if(ispalindromes){
+            output.innerText="Congrations Your Birthday is Palindrome"
+        }
+        else{
+            var [counter,nextdate]=nextpalindromedate(date);
+            output.innerText=`The Next Palindrome date is ${nextdate.day}-${nextdate.month}-${nextdate.year} and missed it by ${counter} days`
+        }
+        
+
+    }
+
+    // var date={
+    //     day:Number(bdaystr[2])
+    //     month:Number(bdaystr[1])
+    //     year:Number(bdaystr[0])
+    // }
+    // console.log(date)
+
+
+}
+
+
+submitbutton.addEventListener("click",eventhandler)
+
+
+
+
 
 
 
