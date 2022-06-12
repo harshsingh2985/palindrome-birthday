@@ -55,15 +55,43 @@ function convertdatetostring(date){
 
     // now we have to return the datestr
     return datestr;
-    
+
 }
 
 var date={
-    day:4,
-    month:5,
+    day:10,
+    month:9,
     year:2020
 }
 console.log(convertdatetostring(date));
+// Ex-04: Write a JS function that takes a date and returns all variations of it
+// DD-MM-YYYY
+// MM-DD-YYYY
+// YYYY-MM-DD
+// DD-MM-YY
+// MM-DD-YY
+// YY-MM-DD
+
+function checkallvariation(date){
+    var datestr=convertdatetostring(date);
+
+    var ddmmyyyy=datestr.day+datestr.month+datestr.year;
+
+    var mmddyyyy=datestr.month+datestr.day+datestr.year;
+
+    var yyyymmdd=datestr.year+datestr.month+datestr.day;
+
+    var ddmmyy=datestr.day+datestr.month+datestr.year.slice(-2);
+
+    var mmddyy=datestr.month+datestr.day+datestr.year.slice(-2);
+
+    var yymmdd=datestr.year.slice(-2)+datestr.month+datestr.day;
+
+    return [ddmmyyyy,mmddyyyy,yyyymmdd,ddmmyy,mmddyy,yymmdd]
+
+
+}
+console.log(checkallvariation(date))
 
 
 
