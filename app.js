@@ -93,5 +93,42 @@ function checkallvariation(date){
 }
 console.log(checkallvariation(date))
 
+// Ex-05: Write a function that checks palindrome for all the date formats
+function checkpalindromeforallvariation(date){
+
+    var listofall=checkallvariation(date);
+
+    var bool=false;
+
+    for(var i=0;i<listofall.length;i++){
+        if(ispalindrome(listofall[i]))
+        bool=true;
+        break;
+
+    }
+    return bool;
+
+}
+console.log(checkpalindromeforallvariation(date))
+// Ex-06: Find the next palindrome date, also how many days are in between
+
+function isleapyear(year){
+    if(year%400===0){
+        return true;
+
+    }
+    if(year%100==0){
+        return true;
+
+    }
+    if(year%4===0){
+        return true;
+
+    }
+    return false;
+    
+}
+
+
 
 
