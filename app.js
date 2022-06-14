@@ -201,11 +201,50 @@ function nextpalindromedate(date){
 
 }
 var date10={
-    day:01,
+    day:02,
     month:04,
     year:2020
 }
 console.log(nextpalindromedate(date10))
+
+// ex-07 wiring up all this 
+var input=document.querySelector("#input-birthday");
+var button=document.querySelector("#submitbtn");
+var output=document.querySelector("#outputdiv");
+
+function eventhandler(e){
+    var birthday=input.value;
+    // console.log(birthday)
+
+    if(birthday!==''){
+        var listofbirthday=birthday.split('-')
+        console.log(listofbirthday)
+
+        var date={
+            day:Number(listofbirthday[2]),
+            month:Number(listofbirthday[1]),
+            year:Number(listofbirthday[0])
+        }
+        console.log(date)
+
+        var ispalindrome=checkpalindromeforallvariation(date);
+
+        if(ispalindrome){
+            output.innerText="Congrulations Your Birthday is Palindrome"
+        }
+        else{
+            var [ctr,nextdate]=nextpalindromedate(date);
+            output.innerText=`The Next Palindrome date si ${nextdate.day}-${nextdate.month}-${nextdate.year} And You missed it by ${ctr} Days`
+        }
+        
+
+    }
+
+}
+
+button.addEventListener("click",eventhandler)
+
+
 
 
 
