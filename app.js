@@ -7,7 +7,7 @@ function reversestr(str){
     return rejoin;
 
 }
-console.log(reversestr("Hello"))
+// console.log(reversestr("Hello"))
 
 // Ex-02: Write a JS function to check for palindrome
 function ispalindrome(str){
@@ -23,7 +23,7 @@ function ispalindrome(str){
 
     }
 }
-console.log(ispalindrome("civic"))
+// console.log(ispalindrome("civic"))
 
 // Ex-03: Write a function that converts the date from number to string
 
@@ -63,7 +63,7 @@ var date={
     month:1,
     year:2020
 }
-console.log(convertdatetostring(date));
+// console.log(convertdatetostring(date));
 // Ex-04: Write a JS function that takes a date and returns all variations of it
 // DD-MM-YYYY
 // MM-DD-YYYY
@@ -86,7 +86,7 @@ function checkallvariation(date){
 
 
 }
-console.log(checkallvariation(date))
+// console.log(checkallvariation(date))
 
 // Ex-05: Write a function that checks palindrome for all the date formats
 function checkpalindromeforallvariation(date){
@@ -96,15 +96,17 @@ function checkpalindromeforallvariation(date){
     var bool=false;
 
     for(var i=0;i<listofall.length;i++){
-        if(ispalindrome(listofall[i]))
-        bool=true;
-        break;
-
+        if(ispalindrome(listofall[i])){
+            bool=true;
+            break;
+        }
+       
     }
+
     return bool;
 
 }
-console.log(checkpalindromeforallvariation(date))
+// console.log(checkpalindromeforallvariation(date))
 // Ex-06: Find the next palindrome date, also how many days are in between
 
 function isleapyear(year){
@@ -125,53 +127,60 @@ function isleapyear(year){
 }
 // console.log(isleapyear(2021))
 function getnextdate(date){
-    // in this function only we will increment the day here month and year remains same;
-    var day=date.day+1;
+      // for the nextdate fucntion we will increment the date function
+      var day=date.day+1;
 
-    var month=date.month;
-    var year=date.year;
+      // we will not do for this for month and year for different reason;
+      var month=date.month;
+      var year=date.year;
+  
+      var daysinmonth=[31,28,31,30,31,30,31,31,30,31,30,31]
+  
+      // it for febuary
+      if(month==2){
+          // checking for leap year;
+          if(isleapyear(year)){
+              if(day>29){
+                  day=1;
+                  month++;
+  
+              }
+              // if the day is not leap year:
+              else{
+                  if(day>28){
+                      day=1;
+                      month++;
+  
+                  }
+              }
+          }
+      }
+  
+      // for all month exepct febuary 
+  
+      else{
+          // dates exceed after the lastdateofmonth then month increases
+          if(day>daysinmonth[month - 1]){
+              day=1;
+              month++;
+          }
+      }
+      // for suppose the day is 31 so we should increase the month
+      if(month>12){
+          month=1;
+          year++;
+  
+      }
+      return {
+          day:day,
+          month:month,
+          year:year
+      }
+  
+      
+  }
+//   console.log(getnextdate(date2));
 
-    // for daysinmonth
-    var daysinmonth=[31,28,31,30,31,30,31,31,30,31,30,31];
-
-    if(month==2){
-        // checking for leapyear;
-        if(isleapyear(year)){
-            if(day>29){
-                day=1;
-                month++;
-
-            }
-            else{
-                if(day>28){
-                    day=1;
-                    month++;
-
-                }
-            }
-        }
-    }
-    else{
-        // except leapyear
-        // if lastdays exceeds in the month
-        if(day>daysinmonth[month -1]){
-            day=1;
-            month++;
-
-        }
-    }
-    // suppose if month exceeds 
-    if(month>12){
-        month=1;
-        year++;
-
-    }
-    return {
-        day:day,
-        month:month,
-        year:year
-    }
-}
 var date2={
     day:31,
     month:05,
@@ -187,7 +196,7 @@ function nextpalindromedate(date){
     while(1){
         ctr++;
         // now we will use ex-05 function to checkthepalindrome
-        var ispalindrome=(checkpalindromeforallvariation(nextdate));
+        var ispalindrome=checkpalindromeforallvariation(nextdate);
 
         if(ispalindrome){
             break;
@@ -195,9 +204,9 @@ function nextpalindromedate(date){
         // now will search again to get the valid palindrome
         nextdate=getnextdate(nextdate);
     }
+
     return [ctr,nextdate];
-
-
+    
 }
 var date10={
     day:29,
