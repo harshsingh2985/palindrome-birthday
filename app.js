@@ -187,8 +187,8 @@ function nextpalindromedate(date){
 
     while(1){
         ctr++;
-        // now we will use ex-04 function to checkthepalindrome
-        var ispalindrome=checkallvariation(nextdate);
+        // now we will use ex-05 function to checkthepalindrome
+        var ispalindrome=(checkpalindromeforallvariation(nextdate));
 
         if(ispalindrome){
             break;
@@ -207,7 +207,7 @@ var date10={
 }
 console.log(nextpalindromedate(date10))
 
-// console.log(nextpalindromedate(date))
+
 
 
 
