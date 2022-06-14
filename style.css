@@ -1,9 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
+
+
+
+
+
+
+
 body{
+    font-family: 'Montserrat', sans-serif;
     margin: 0px;
     padding:0px;
     background-color: black;
     color:white
 }
+
+
 
 #head{
     text-align: center;
@@ -11,3 +22,4 @@ body{
 .container{
     text-align: center;
 }
+

@@ -234,9 +234,9 @@ function eventhandler(e){
         }
         else{
             var [ctr,nextdate]=nextpalindromedate(date);
-            output.innerText=`The Next Palindrome date si ${nextdate.day}-${nextdate.month}-${nextdate.year} And You missed it by ${ctr} Days`
+            output.innerText=`The Next Palindrome Date is ${nextdate.day}-${nextdate.month}-${nextdate.year} And You Missed it by ${ctr} Days`
         }
-        
+
 
     }
 
