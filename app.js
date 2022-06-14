@@ -174,10 +174,11 @@ function getnextdate(date){
 }
 var date2={
     day:29,
-    month:02,
-    year:2020
+    month:04,
+    year:2022
 }
-console.log(getnextdate(date2));
+
+
 
 
 
@@ -194,16 +195,16 @@ function nextpalindromedate(date){
             break;
         }
         // now will search again to get the valid palindrome
-        nextdate=getnextdate(nextdate);
+        nextdate=nextpalindromedate(nextdate);
     }
     return [ctr,nextdate];
 
 
 }
 var date10={
-    day:02,
-    month:04,
-    year:2020
+    day:29,
+    month:05,
+    year:2022
 }
 console.log(nextpalindromedate(date10))
 

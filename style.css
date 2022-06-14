@@ -14,12 +14,18 @@ body{
     color:white
 }
 
-
-
 #head{
     text-align: center;
 }
 .container{
     text-align: center;
+}
+#harsh{
+    text-align: center;
+    margin: auto;
+    padding:auto;
+    /* text-align: end; */
+    
+
 }
 
