@@ -195,7 +195,7 @@ function nextpalindromedate(date){
             break;
         }
         // now will search again to get the valid palindrome
-        nextdate=nextpalindromedate(nextdate);
+        nextdate=getnextdate(nextdate);
     }
     return [ctr,nextdate];
 
