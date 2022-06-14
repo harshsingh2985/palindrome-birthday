@@ -173,13 +173,11 @@ function getnextdate(date){
     }
 }
 var date2={
-    day:29,
-    month:04,
+    day:31,
+    month:05,
     year:2022
 }
-
-
-
+console.log(getnextdate(date2));
 
 
 function nextpalindromedate(date){
@@ -219,14 +217,14 @@ function eventhandler(e){
 
     if(birthday!==''){
         var listofbirthday=birthday.split('-')
-        console.log(listofbirthday)
+        // console.log(listofbirthday)
 
         var date={
             day:Number(listofbirthday[2]),
             month:Number(listofbirthday[1]),
             year:Number(listofbirthday[0])
         }
-        console.log(date)
+        // console.log(date)
 
         var ispalindrome=checkpalindromeforallvariation(date);
 
